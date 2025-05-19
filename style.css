@@ -164,20 +164,6 @@ nav {
   background-color: darkred;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Mobile Responsive */
 @media (max-width: 1060px) {
   nav {
@@ -276,27 +262,6 @@ nav {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Privacy Policy Styles */
 .privacy-policy {
   max-width: 700px;
@@ -358,3 +323,13 @@ nav {
     font-size: 0.95rem;
   }
 }
+
+
+
+
+
+
+
+
+
+/* csss for  portfolio   */
