@@ -49,19 +49,35 @@
     </div>
     <div class="btns">
       <button>Hire me</button>
-        <a href="https://github.com/azmatullah78" target="_blank" rel="noopener noreferrer">Git Hub</a>
+      <a href="https://github.com/azmatullah78" target="_blank" rel="noopener noreferrer">Git Hub</a>
     </div>
-<div class="profile-upload-container">
-  <img id="profileImage" src="default.jpg" alt="image" />
-  <input type="file" id="imageUpload" accept="image/*" hidden />
+    <div class="profile-upload-container">
+      <img id="profileImage" src="default.jpg" alt="image" />
+      <input type="file" id="imageUpload" accept="image/*" hidden />
 
-  <div class="btn-group">
-    <button onclick="document.getElementById('imageUpload').click()">Choose img</button>
-    <button onclick="removeImage()">Remove</button>
-  </div>
-</div>
+      <div class="btn-group">
+        <button onclick="document.getElementById('imageUpload').click()">Choose img</button>
+        <button onclick="removeImage()">Remove</button>
+      </div>
+    </div>
 
   </div>
+  <section class="privacy-policy">
+    <h2>Privacy Policy</h2>
+    <p>
+      We respect your privacy. This policy explains how we handle your personal data.
+    </p>
+    <p>
+      We do not share your information with third parties without consent. By using our website, you agree to this
+      policy.
+    </p>
+    <p>
+      If you have any questions about this privacy policy, please contact us on
+      <a href="https://wa.me/923069297528" target="_blank" class="whatsapp-link">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </p>
+  </section>
 
   <script>
     const buttons = document.querySelectorAll('.nav-center button');
@@ -88,47 +104,39 @@
     });
 
     function removeImage() {
-    profileImage.src = "default.jpg"; // set to your default image path
-    localStorage.removeItem("profileImage");
-  }
-
-
-
-
-
-
-
-
-
-
-  // Existing tab change script yahan rahe...
-
-  const imageInput = document.getElementById("imageUpload");
-  const profileImage = document.getElementById("profileImage");
-
-  // Load saved image from localStorage on page load
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedImage = localStorage.getItem("uploadedImage");
-    if (savedImage) {
-      profileImage.src = savedImage;
+      profileImage.src = "default.jpg"; // set to your default image path
+      localStorage.removeItem("profileImage");
     }
-  });
 
-  imageInput.addEventListener("change", function () {
-    const file = this.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        profileImage.src = e.target.result;
-        localStorage.setItem("uploadedImage", e.target.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  });
+    // Existing tab change script yahan rahe...
+
+    const imageInput = document.getElementById("imageUpload");
+    const profileImage = document.getElementById("profileImage");
+
+    // Load saved image from localStorage on page load
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedImage = localStorage.getItem("uploadedImage");
+      if (savedImage) {
+        profileImage.src = savedImage;
+      }
+    });
+
+    imageInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          profileImage.src = e.target.result;
+          localStorage.setItem("uploadedImage", e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
 
 
   </script>
 
 </body>
 
-</html>
+</html>                  
+<!-- portfolio website -->
