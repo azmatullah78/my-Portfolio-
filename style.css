@@ -1,842 +1,178 @@
- html,
- body {
-   margin: 0;
-   padding: 0;
-   height: 100%;
-   width: 100%;
-   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-   overflow-x: hidden;
- }
-
- /* Fullscreen section with background */
- .top-section {
-   position: relative;
-   width: 100vw;
-   height: 110vh;
-   background-image: url('logo.jpg');
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   color: white;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   /* vertical center */
-   align-items: center;
-   /* horizontal center */
-   text-align: center;
- }
-
- /* Dark transparent overlay for text visibility */
- .top-section::before {
-   content: "";
-   position: absolute;
-   inset: 0;
-   background-color: rgba(0, 0, 0, 0.6);
-   z-index: 0;
- }
-
- /* All direct children above overlay */
- .top-section>* {
-   position: relative;
-   z-index: 1;
-   width: 100%;
-   max-width: 700px;
-   padding: 0 20px;
-   box-sizing: border-box;
- }
-
- /* Navbar fixed at top */
- .top-nav {
-   position: absolute;
-   top: 50px;
-   left: 0;
-   width: 100%;
-   padding: 0 40px;
-   display: flex;
-   justify-content: space-between;
-   /* <-- change from space-around */
-   align-items: center;
-   box-sizing: border-box;
-   z-index: 2;
- }
-
- /* Netflix logo styling */
- .logo {
-   position: absolute;
-   left: 80px;
-   font-family: 'Bebas Neue', cursive, sans-serif;
-   font-size: 3.3rem;
-   font-weight: 900;
-   color: #E50914;
-   cursor: default;
- }
-
- .sign-in-btn {
-   position: absolute;
-   right: -400px;
-   background-color: #E50914;
-   border: none;
-   color: white;
-   font-weight: 700;
-   font-size: 1.1rem;
-   padding: 12px 30px;
-   border-radius: 4px;
-   cursor: pointer;
-   transition: background-color 0.3s ease;
-   user-select: none;
- }
-
- .sign-in-btn:hover {
-   background-color: #bf0812;
- }
-
- /* Main heading */
- .top-content h1 {
-   font-size: 3rem;
-   font-weight: 700;
-   margin-bottom: 15px;
-   line-height: 1.2;
- }
-
- /* Subtext */
- .top-content p {
-   font-size: 1.5rem;
-   margin-bottom: 20px;
-   color: #ddd;
- }
-
- /* Smaller instruction text */
- .ready-text {
-   font-size: 1.2rem;
-   margin-bottom: 30px;
- }
-
- /* Form container */
- .email-form {
-   display: flex;
-   justify-content: center;
-   gap: 10px;
-   flex-wrap: wrap;
-   max-width: 600px;
-   margin: 0 auto;
- }
-
- /* Email input */
- .email-form input[type="email"] {
-   flex: 1 1 300px;
-   padding: 16px 20px;
-   font-size: 1.2rem;
-   border: 2px solid #ddd;
-   border-radius: 4px;
-   outline: none;
-   transition: border-color 0.3s ease;
-   min-width: 250px;
- }
-
- .email-form input[type="email"]:focus {
-   border-color: #E50914;
- }
-
- /* Get Started button */
- .email-form button {
-   background-color: #E50914;
-   border: none;
-   color: white;
-   font-weight: 700;
-   font-size: 1.2rem;
-   padding: 16px 30px;
-   border-radius: 4px;
-   cursor: pointer;
-   transition: background-color 0.3s ease;
-   white-space: nowrap;
-   min-width: 140px;
- }
-
- .email-form button:hover {
-   background-color: #bf0812;
- }
-
-
- /* Medium screens: tablets (768px and below) */
- @media (max-width: 768px) {
-   .top-nav {
-     padding: 0 20px;
-     top: 30px;
-   }
-
-   .logo {
-     font-size: 2rem;
-     left: 0px;
-   }
-
-   .top-section{
-    height: 70vh;
-   }
-
-   .sign-in-btn {
-     font-size: 1rem;
-     padding: 10px 20px;
-     right: 20px;
-     position: absolute;
-   }
-
-   .top-content h1 {
-     margin-bottom: 60px;
-     line-height: 1.2;
-   }
-
-   .top-content p {
-     margin-bottom: 50px;
-     font-size: 1rem;
-   }
-
-   .ready-text {
-     margin-bottom: 20px;
-     font-size: 1rem;
-   }
-
-   .email-form {
-     flex-wrap: wrap;
-     gap: 15px;
-   }
-
-   .email-form input[type="email"],
-   .email-form button {
-     width: 100%;
-     min-width: unset;
-   }
- }
-
- /* Small screens: phones (480px and below) */
-@media (max-width: 480px) {
-  .logo {
-    font-size: 2rem;
-    left: 15px;
-  }
-
-  .sign-in-btn {
-    font-size: 0.9rem;
-    padding: 8px 18px;
-    right: 15px;
-  }
-
-  .top-content h1 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-  }
-
-  .top-content p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-  }
-
-  .ready-text {
-    font-size: 0.95rem;
-  }
-
-  .email-form {
-    padding: 0 10px;
-  }
-
-  .email-form input[type="email"],
-  .email-form button {
-    font-size: 1rem;
-    padding: 12px 18px;
-    width: 50%;
-  }
-}
-
-
-
-
-
- h2 {
-   font-size: 30px;
-   color: rgb(0, 0, 0);
-   white-space: nowrap;
-   margin: 20px 100px;
- }
-
- /* Scroll container width to show exactly 4 images */
- .scroll-container {
-   position: relative;
-   width: calc(4 * 200px + 3 * 30px);
-   /* 4 images + gaps */
-   margin: 0 auto 80px auto;
- }
-
- /* Images row */
- .images {
-   display: flex;
-   overflow-x: auto;
-   gap: 20px;
-   scrollbar-width: none;
-   scroll-behavior: smooth;
- }
-
- .images::-webkit-scrollbar {
-   display: none;
- }
-
- .images img {
-   width: 190px;
-   height: 260px;
-   border-radius: 8px;
-   object-fit: cover;
-   flex-shrink: 0;
- }
-
- /* Scroll buttons */
- .scroll-btn {
-   position: absolute;
-   top: 50%;
-   transform: translateY(-50%);
-   background-color: rgba(0, 0, 0, 0.7);
-   border: none;
-   font-size: 28px;
-   padding: 10px 14px;
-   border-radius: 50%;
-   cursor: pointer;
-   color: white;
-   transition: background-color 0.3s ease;
-   user-select: none;
-   z-index: 10;
- }
-
- .scroll-btn:hover {
-   background-color: rgba(255, 255, 255, 0.2);
- }
-
- .scroll-btn.left {
-   left: -50px;
- }
-
- .scroll-btn.right {
-   right: -50px;
- }
-
-
-
- /* Existing styles remain unchanged above... */
-
-/* Medium screens: tablets (up to 768px) */
-@media (max-width: 768px) {
-  h2 {
-    font-size: 24px;
-    margin: 20px 40px;
-  }
-
-  .scroll-container {
-    width: calc(3 * 160px + 2 * 20px); /* Show 3 images */
-  }
-
-  .images img {
-    width: 160px;
-    height: 220px;
-  }
-
-  .scroll-btn.left {
-    left: -30px;
-  }
-
-  .scroll-btn.right {
-    right: -30px;
-  }
-}
-
-/* Small screens: phones (up to 480px) */
-@media (max-width: 480px) {
-  h2 {
-    font-size: 20px;
-    margin: 20px 20px;
-  }
-
-  .scroll-container {
-    width: calc(2 * 140px + 1 * 20px); /* Show 2 images */
-  }
-
-  .images img {
-    width: 140px;
-    height: 200px;
-  }
-
-  .scroll-btn.left {
-    left: -20px;
-  }
-
-  .scroll-btn.right {
-    right: -20px;
-  }
-}
-
-
-
-
-
-
-
-
-
- h3 {
-   color: #fff;
-   margin-top: 0;
-   font-size: 1.2rem;
- }
-   .black {
-     font-size: 30px;
-     color: rgb(0, 0, 0);
-     white-space: nowrap;
-     margin: 20px 100px;
-     font-weight: bold;
- }
-
- .container {
-   max-width: 1300px;
-   margin: 0 auto 60px auto;
-   align-items: flex-start;
-   /* Align items from top */
-   justify-content: center;
-   gap: 50px;
-   padding: 0 20px;
- }
- 
- .container>.smalls {
-   font-size: 30px;
-   color: white;
-   white-space: nowrap;
-   margin: 20px 100px;
- }
-
- /* Boxes wrapper */
- .boxes {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 30px;
-   margin: 20px 0;
- }
-
-
- /* Each box */
- .box {
-   background: rgb(42, 30, 96);
-   padding: 10px 10px 40px 10px;
-   width: 180px;
-   height: 250px;
-   border-radius: 8px;
-   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   justify-content: flex-start;
-   color: white;
- }
-
- /* Box headings */
- .box h3 {
-   font-size: 1.3rem;
-   margin-bottom: 10px;
- }
-
- /* Box paragraphs */
- .box p {
-   line-height: 1.3;
-   margin-top: 10px;
-   margin-bottom: 0;
-   flex-grow: 1;
- }
-
- /* Image inside box, positioned bottom-right */
- .relative-image img {
-   width: 70px;
-   position: absolute;
-   bottom: 20px;
-   right: 20px;
-   border-radius: 6px;
-   box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
- }
-
- /* --- FAQ Mega Menu Section --- */
-
- .question {
-   max-width: 1300px;
-   margin: 0 auto 40px auto;
-   padding: 20px 20px;
-   /* background-color: #000; */
-   border-radius: 8px;
-   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
- }
-
- .question .small {
-   font-size: 1.6rem;
-   font-weight: 700;
-   margin-bottom: 20px;
-   color: white;
- }
-
- /* Mega Menu container */
- .mega-menu {
-   background-color: #000;
-   border-radius: 8px;
-   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
-   padding: 20px 30px;
- }
-
- /* Each question item */
- .mega-item {
-   border-bottom: 1px solid #222;
-   padding: 15px 0;
-   cursor: pointer;
-   user-select: none;
-   transition: background-color 0.3s ease;
- }
-
- .mega-item:last-child {
-   border-bottom: none;
- }
-
- .mega-item:hover {
-   background-color: rgba(255, 255, 255, 0.1);
- }
-
- /* Question heading */
- .mega-item h4 {
-   margin: 0;
-   font-weight: 700;
-   font-size: 1.1rem;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   color: #fff;
- }
-
- /* Expand/Collapse sign */
- .mega-item .sign {
-   font-size: 1.4rem;
-   user-select: none;
-   transition: transform 0.3s ease;
- }
-
- /* Paragraph content hidden by default */
- .mega-item p {
-   margin: 10px 0 0 0;
-   line-height: 1.4;
-   color: #ccc;
-   display: none;
- }
-
- /* Show paragraph when expanded */
- .mega-item.expanded p {
-   display: block;
- }
-
- /* Rotate sign on expanded */
- .mega-item.expanded .sign {
-   transform: rotate(45deg);
-   /* + turns to x */
- }
-
-
-
- /* Medium screens (up to 768px) */
-@media (max-width: 768px) {
-  .black,
-  .container > .smalls {
-    font-size: 24px;
-    margin: 20px 40px;
-  }
-
-  .boxes {
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-
-  .box {
-    width: 160px;
-    height: auto;
-    padding-bottom: 60px;
-  }
-
-  .relative-image img {
-    width: 60px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .question .small {
-    font-size: 1.4rem;
-  }
-
-  .mega-item h4 {
-    font-size: 1rem;
-  }
-
-  .mega-item .sign {
-    font-size: 1.2rem;
-  }
-}
-
-/* Small screens (phones up to 480px) */
-@media (max-width: 480px) {
-  .black,
-  .container > .smalls {
-    font-size: 20px;
-    margin: 20px 20px;
-  }
-
-  .boxes {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .box {
-    width: 90%;
-    max-width: 300px;
-    height: auto;
-    padding: 20px 15px 60px 15px;
-  }
-
-  .relative-image img {
-    width: 50px;
-    bottom: 10px;
-    right: 10px;
-  }
-
-  .question {
-    padding: 15px;
-  }
-
-  .question .small {
-    font-size: 1.2rem;
-  }
-
-  .mega-menu {
-    padding: 15px 20px;
-  }
-
-  .mega-item h4 {
-    font-size: 0.95rem;
-  }
-
-  .mega-item .sign {
-    font-size: 1.1rem;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- .footer-section {
-   background-color: #141414;
-   color: #757575;
-   font-family: Arial, sans-serif;
-   font-size: 0.9rem;
-   padding: 40px 20px;
-   margin: 30px 0;
- }
- 
- .footer-section .contact {
-   margin-left: 30px;
-   font-size: 1rem;
-   color: white;
-   margin-left: 10%;
- }
-
- /* Footer links section */
- .footer-links-container {
-   display: flex;
-   justify-content: flex-start;
-   align-items: flex-start;
-   flex-wrap: wrap;
-   gap: 60px;
-   margin-left: 30px;
-   margin-left: 10%;
- }
-
- .footer-column {
-   display: block;
-   min-width: 150px;
-  }
-
- .footer-column a {
-   display: block;
-   color: #b4b0b0;
-   text-decoration: none;
-   margin-bottom: 10px;
-   transition: color 0.3s;
-  }
-
- .footer-column a:hover {
-   color: white;
-  }
-  
-  /* Language dropdown */
-  .language-select {
-    margin-left: 10%;
-    margin-bottom: 30px;
- }
-
- .language-select select {
-   background-color: rgb(94, 114, 93);
-   color: #ffffff;
-   border: 1px solid #757575;
-   padding: 8px 12px;
-   border-radius: 4px;
-   font-size: 1rem;
-   cursor: pointer;
- }
-
- .language-select select:hover,
- .language-select select:focus {
-   color: white;
-   border-color: white;
-   outline: none;
-  }
-  
-  .copyright {
-   color: #b4b0b0;
-   margin-left: 10%;
-  }
-  
- /* Netflix Pakistan */
- .footer-location {
-   margin-left: 30px;
-   margin-bottom: 30px;
-   color: #757575;
-  }
-  
- /* reCAPTCHA note */
- .recaptcha-note {
-   margin-left: 10%;
-   font-size: 0.8rem;
-   color: #b4b0b0;
-  }
-
- .recaptcha-note a {
-   color: #c2b8b8;
-   text-decoration: underline;
-  }
-  
-  .recaptcha-note a:hover {
-    color: white;
-  }
-  
-
-
-
-  
- /* Medium screens (≤768px) */
-@media (max-width: 768px) {
-  .footer-links-container {
-    justify-content: center;
-    gap: 40px;
-    margin-left: 5%;
-  }
-  
-  .footer-section .contact,
-  .footer-location,
-  .language-select,
-  .copyright,
-  .recaptcha-note {
-    margin-left: 5%;
-    font-size: 0.9rem;
-  }
-
-  .language-select select {
-    max-width: 100%;
-    font-size: 1rem;
-  }
-}
-
-
-
-/* Small screens (phones up to 480px) */
-@media (max-width: 480px){
-  /* Base footer layout */
-.footer-section {
-  background-color: #141414;
-  color: #757575;
+body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  font-size: 0.9rem;
-  padding: 40px 20px;
-  margin: 30px 0;
+  background: white;
+  color: #333;
 }
 
-.footer-section .contact,
-.footer-location,
-.language-select,
-.copyright,
-.recaptcha-note {
-  margin-left: 10%;
-  font-size: 1rem;
-  color: #b4b0b0;
-}
-
-
-.footer-links-container {
+/* Navbar styles */
+nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 60px;
-  justify-content: flex-start;
-  margin-left: 10%;
-  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  justify-content: center;
+  padding: 10px 0;
 }
 
-.footer-column {
-  min-width: 150px;
+
+/* Left side brand */
+.brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  user-select: none;
+  margin-left: 10px;
 }
 
-.footer-column a {
-  display: block;
-  color: #b4b0b0;
-  text-decoration: none;
-  margin-bottom: 10px;
-  transition: color 0.3s;
+.brand .red {
+  color: red;
 }
 
-.footer-column a:hover {
+.brand .white {
   color: white;
 }
 
-.language-select select {
-  background-color: rgb(94, 114, 93);
-  color: #ffffff;
-  border: 1px solid #757575;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  width: 200px;
+/* Center nav items */
+.nav-center {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex: 1;
 }
 
-.language-select select:hover,
-.language-select select:focus {
-  border-color: white;
+.nav-center button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 8px 15px;
+}
+
+.nav-center button:hover,
+.nav-center {
+  color: red;
   outline: none;
 }
 
-.recaptcha-note a {
-  color: #c2b8b8;
-  text-decoration: underline;
+/* Right side contact button */
+.contact-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 13px;
+  margin-right: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.recaptcha-note a:hover {
-  color: white;
+.contact-btn:hover {
+  background-color: darkred;
 }
+
+/* Content area */
+.content {
+  max-width: 400px;
+  margin: 100px 160px;
+  display: flex;
+  min-height: 150px;
+  position: relative;
+}
+
+/* Description sections */
+.desc-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.desc-section.active {
+  display: block;
+  opacity: 1;
+  position: relative;
+}
+
+
+.profile-upload-container {
+  position: fixed;
+  right: 170px;
+  top: 100px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#profileImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.btn-group {
+  margin-top: 13px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-group button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-group button:hover {
+  background-color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btns {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  position: fixed;
+  top: 300px;
+}
+
+
+.btns button ,a{
+  padding: 8px 16px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.btns button:hover {
+  background-color: darkred;
 }
